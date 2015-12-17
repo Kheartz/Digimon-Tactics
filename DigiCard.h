@@ -13,6 +13,11 @@ public:
 	DigiCard(string idx);
 	~DigiCard();
 
+	int getHP(){ return HP; }
+	string getRank(){ return rank; }
+	string getType(){ return type; }
+	string getAttribute(){ return attribute; }
+
 };
 
 class SupportCard : public Card
@@ -26,4 +31,8 @@ public:
 	SupportCard(string idx);
 	~SupportCard();
 
+	int getHP(){ return HP; }
+	string getRank(){ return rank; }
+	string getType(){ return type; }
+	string getAttribute(){ return attribute; }
 };

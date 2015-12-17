@@ -6,6 +6,8 @@ using namespace std;
 class Card
 {
 private:
+
+protected:
 	string name;
 	string index;
 	int width;

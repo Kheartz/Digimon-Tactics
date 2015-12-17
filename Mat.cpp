@@ -14,9 +14,11 @@ Mat::Mat(int _refX, int _refY, bool _reversed)
 	matPos.y = reversed * refY - 0 * revFact;
 	cardBuffer = 5; //size in between adjacent cards
 	digimonRowPos.x = reversed * refX - 240 * revFact;
-	digimonRowPos.y = reversed * refY - 100 * revFact;
+	digimonRowPos.y = reversed * refY - 25 * revFact;
 	supportRowPos.x = reversed * refX - 240 * revFact;
-	supportRowPos.y = reversed * refY - 500 * revFact;
+	supportRowPos.y = reversed * refY - 250 * revFact;
+	handPos.x = reversed * refX - 240 * revFact;
+	handPos.y = reversed * refY - 500 * revFact;
 	deckPos.x = reversed * refX - 1050 * revFact;
 	deckPos.y = reversed * refY - 500 * revFact;
 
@@ -24,9 +26,7 @@ Mat::Mat(int _refX, int _refY, bool _reversed)
 	matHeight = 800;
 	deckWidth = 137;
 	deckHeight = 204;
-
 	
-
 	if (!matImage.loadFromFile("DATA/MISC/mat.png")){ //Load the Image in memory
 		//error...
 	}
@@ -49,7 +49,6 @@ Mat::Mat(int _refX, int _refY, bool _reversed)
 	deckSprite.setPosition(sf::Vector2f(deckPos.x, deckPos.y));
 	if (reversed)
 		deckSprite.rotate(180);
-
 }
 
 Mat::~Mat()
@@ -76,5 +75,14 @@ void Mat::addToSupportRow(Card* card){
 		if (reversed)
 			card->getSSprite().setRotation(180);		
 		supportRow.push_back(card);
+	}
+}
+void Mat::addToHand(Card* card){
+	if (hand.size() < 5){
+		card->getSSprite().setPosition(handPos.x - revFact *  (hand.size()*(card->getSSprite().getTextureRect().width*card->getSSprite().getScale().x + cardBuffer)), handPos.y);
+
+		if (reversed)
+			card->getSSprite().setRotation(180);
+		hand.push_back(card);
 	}
 }

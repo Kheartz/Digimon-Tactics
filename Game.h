@@ -2,6 +2,7 @@
 #include "DigiCard.h"
 #include "Mat.h"
 #include "Splash.h"
+#include "Lobby.h"
 
 class Game
 {
@@ -16,11 +17,14 @@ private:
 	enum GAMESTATE{
 		SPLASH,
 		GAME,
+		MANAGEDECK,
 		OPTIONS
 	};
 	GAMESTATE _gs;
 	sf::Event event;
 	Splash splash;
+	Lobby clientLobby;
+	bool matchStarted;
 	/*****CONFIGURATIONS*****/
 	int musicVolume;
 	int soundEffVolume;
@@ -35,6 +39,7 @@ public:
 	void run();
 	
 	Mat* getPlayerMat() { return playerMat; }
+	Mat* getEnemyMat(){ return enemyMat; }
 
 
 	/*****STATE FUNCTIONS*****/
@@ -42,14 +47,17 @@ public:
 	void pollInputSplash(sf::Event& event);
 	void pollInputGame(sf::Event& event);
 	void pollInputOptions(sf::Event& event);
+	void pollInputManageDeck(sf::Event& event);
 	//Update Current GAMESTATE
 	void updateSplash();
 	void updateGame();
 	void updateOptions();
+	void updateManageDeck();
 	//Update Draw
 	void drawSplash();
 	void drawGame();
 	void drawOptions();
+	void drawManageDeck();
 
 
 

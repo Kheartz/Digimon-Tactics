@@ -3,6 +3,7 @@
 using namespace std;
 
 struct CHOICE{
+	const char* id;
 	sf::Image image;
 	sf::Texture texture;
 	sf::Texture textureActive;
@@ -39,6 +40,7 @@ private:
 	CHOICE optionsChoice;
 	CHOICE manageDeckChoice;
 	CHOICE exitChoice;
+
 	
 	sf::Vector2f choicePos;
 	int choiceWidth;

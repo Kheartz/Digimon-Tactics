@@ -14,6 +14,7 @@ Splash::Splash(){
 	choiceHeight = 43;
 
 	//Start Game
+	startChoice.id = "STARTGAME";
 	if (!startChoice.texture.loadFromFile(("DATA/MISC/start.png"), sf::IntRect(0, 0, choiceWidth, choiceHeight)) ||
 		!startChoice.textureActive.loadFromFile(("DATA/MISC/starta.png"), sf::IntRect(0, 0, choiceWidth, choiceHeight))){
 		//error...
@@ -22,7 +23,8 @@ Splash::Splash(){
 	startChoice.active = false;
 	choices.push_back(&startChoice);
 
-	//ManageGame
+	//ManageDeck
+	manageDeckChoice.id = "MANAGEDECK";
 	if (!manageDeckChoice.texture.loadFromFile(("DATA/MISC/managedeck.png"), sf::IntRect(0, 0, choiceWidth, choiceHeight)) ||
 		!manageDeckChoice.textureActive.loadFromFile(("DATA/MISC/managedecka.png"), sf::IntRect(0, 0, choiceWidth, choiceHeight))){
 		//error...
@@ -31,6 +33,7 @@ Splash::Splash(){
 	manageDeckChoice.active = false;
 	choices.push_back(&manageDeckChoice);
 	//Options
+	optionsChoice.id = "OPTIONS";
 	if (!optionsChoice.texture.loadFromFile(("DATA/MISC/options.png"), sf::IntRect(0, 0, choiceWidth, choiceHeight)) ||
 		!optionsChoice.textureActive.loadFromFile(("DATA/MISC/optionsa.png"), sf::IntRect(0, 0, choiceWidth, choiceHeight))){
 		//error...
@@ -38,6 +41,7 @@ Splash::Splash(){
 	optionsChoice.sprite.setTexture(optionsChoice.texture);
 	choices.push_back(&optionsChoice);
 	//Exit Game
+	exitChoice.id = "EXITGAME";
 	if (!exitChoice.texture.loadFromFile(("DATA/MISC/exit.png"), sf::IntRect(0, 0, choiceWidth, choiceHeight)) ||
 		!exitChoice.textureActive.loadFromFile(("DATA/MISC/exita.png"), sf::IntRect(0, 0, choiceWidth, choiceHeight))){
 		//error...

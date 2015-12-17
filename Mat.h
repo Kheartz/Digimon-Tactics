@@ -10,11 +10,13 @@ private:
 	vector<Card*> site;
 	vector<Card*> digimonRow;
 	vector<Card*> supportRow;
+	vector<Card*> hand;
 
 	sf::Vector2i matPos;
 	sf::Vector2i digimonRowPos;
 	sf::Vector2i supportRowPos;
 	sf::Vector2i deckPos;
+	sf::Vector2i handPos;
 
 	int cardBuffer;
 
@@ -50,11 +52,13 @@ public:
 	void addToSite(Card* card);
 	void addToDigimonRow(Card* card);
 	void addToSupportRow(Card* card);
+	void addToHand(Card* card);
 	vector<Card*>& getDeck(){ return deck; }
 	vector<Card*>& getSideDeck(){ return sideDeck; }
 	vector<Card*>& getDark(){ return dark; }
 	vector<Card*>& getSite(){ return site; }
 	vector<Card*>& getDigimonRow(){ return digimonRow; }
 	vector<Card*>& getSupportRow(){ return supportRow; }
+	vector<Card*>& getHand(){ return hand; }
 	int getDeckSize(){ return deck.size(); }
 };
